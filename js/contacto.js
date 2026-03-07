@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════
-   contacto.js — Validação e envio do formulário
+   contato.js — Validação e envio do formulário
    Associação Nhelety
    ══════════════════════════════════════════════ */
 
@@ -28,7 +28,7 @@
       return showError('Por favor, introduza um endereço de e-mail válido.');
     }
     if (!tipo) {
-      return showError('Por favor, seleccione o tipo de adesão.');
+      return showError('Por favor, selecione o tipo de adesão.');
     }
     if (!mensagem || mensagem.length < 20) {
       return showError('A mensagem deve ter pelo menos 20 caracteres. Conte-nos mais sobre si.');
@@ -43,7 +43,7 @@
       form.reset();
       btn.disabled = false;
       btn.textContent = 'Enviar Candidatura ✉';
-      showToast('✅ Candidatura enviada com sucesso! Entraremos em contacto em breve.');
+      showToast('✅ Candidatura enviada com sucesso! Entraremos em contato em breve.');
     }, 1200);
   });
 

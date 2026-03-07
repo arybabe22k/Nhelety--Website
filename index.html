@@ -19,7 +19,7 @@
     base.css        → Variáveis, reset, utilitários globais, animações
     navbar.css      → Barra de navegação e menu mobile
     hero.css        → Secção hero e barra de estatísticas
-    sections.css    → Sobre, Membros, Transparência, Contacto, Footer
+    sections.css    → Sobre, Membros, Transparência, Contato, Footer
     atividades.css  → Cards de posts e painel de administração
     ═══════════════════════════════════════════
   -->
@@ -37,12 +37,12 @@
     ─────────────────────────────────────────
     navbar.html        → Barra de navegação fixa
     hero.html          → Hero principal + barra de estatísticas
-    sobre.html         → Sobre Nós + Estrutura de Governança
+    sobre.html         → Sobre Nós + Estrutura de Governação
     atividades.html    → Posts públicos + painel admin (modal)
     membros.html       → Categorias de membros + deveres
     transparencia.html → Fiscalização e documentação legal
     doacoes.html       → Formas de doação e impacto
-    contacto.html      → Formulário de candidatura
+    contato.html      → Formulário de candidatura
     footer.html        → Rodapé + toast de notificação
     ═══════════════════════════════════════════
   -->
@@ -59,7 +59,7 @@
         <a href="#membros"       class="nav-link text-sm">Membros</a>
         <a href="#transparencia" class="nav-link text-sm">Transparência</a>
         <a href="#doacoes"       class="nav-link text-sm">Doações</a>
-        <a href="#contacto"      class="nav-link text-sm">Contacto</a>
+        <a href="#contato"      class="nav-link text-sm">Contato</a>
         <!-- Redes Sociais -->
         <div class="flex items-center gap-3 border-l border-gray-200 pl-5">
           <a href="https://www.instagram.com/ass.nhelety" target="_blank" rel="noopener"
@@ -95,7 +95,7 @@
         <a href="#membros"       class="nav-link text-base mobile-nav-link">Membros</a>
         <a href="#transparencia" class="nav-link text-base mobile-nav-link">Transparência</a>
         <a href="#doacoes"       class="nav-link text-base mobile-nav-link">Doações</a>
-        <a href="#contacto"      class="nav-link text-base mobile-nav-link">Contacto</a>
+        <a href="#contato"      class="nav-link text-base mobile-nav-link">Contato</a>
         <button onclick="openAdmin()" class="admin-only nav-link text-base text-left mobile-nav-link">⚙️ Gerir Atividades</button>
         <!-- Redes Sociais no mobile -->
         <div class="flex items-center gap-3 pt-2 border-t border-gray-100">
@@ -126,7 +126,7 @@
         <div>
           <div class="hero-badge mb-6"><span>🇲🇿</span> Desde 2007 • Moçambique</div>
           <h1 class="hero-title mb-6">Juntos pela<br/><span>Mudança</span><br/>em Moçambique</h1>
-          <p class="hero-sub mb-10">A Associação Nhelety une esforços para promover o bem-estar social, a solidariedade e o desenvolvimento comunitário em Moçambique — com transparência, governança e propósito.</p>
+          <p class="hero-sub mb-10">A Associação Nhelety une esforços para promover o bem-estar social, a solidariedade e o desenvolvimento comunitário em Moçambique — com transparência, governação e propósito.</p>
           <div class="hero-ctas flex flex-wrap gap-4">
             <a href="#doacoes"  class="btn-ajudar text-base">❤ Ajudar Agora</a>
             <a href="#sobre"    class="btn-secundario text-base">Conhecer-nos</a>
@@ -166,7 +166,7 @@
   <section id="sobre" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-5">
       <div class="text-center mb-16 reveal">
-        <div class="section-label">Nossa história</div>
+        <div class="section-label">A nossa história</div>
         <div class="accent-line mx-auto"></div>
         <h2 class="text-4xl md:text-5xl font-black mb-4">Sobre a Associação Nhelety</h2>
         <p class="text-gray-500 max-w-2xl mx-auto text-lg">Uma organização fundada com o propósito de promover a solidariedade e o desenvolvimento comunitário em Moçambique.</p>
@@ -174,18 +174,18 @@
       <div class="grid md:grid-cols-2 gap-12 items-start mb-20 reveal">
         <div>
           <h3 class="text-2xl font-bold mb-4">A Nossa Fundação</h3>
-          <p class="text-gray-600 leading-relaxed mb-4">A Associação Nhelety foi fundada em <strong>27 de Agosto de 2007</strong>, fruto da vontade colectiva de cidadãos comprometidos com o desenvolvimento social de Moçambique. A sua existência foi oficializada pelo Ministério da Justiça da República de Moçambique.</p>
-          <p class="text-gray-600 leading-relaxed mb-4">O acto de reconhecimento foi publicado no <strong>Boletim da República de Moçambique</strong>, III Série — Número 49, em <strong>10 de Dezembro de 2009</strong>, conferindo à associação plena legitimidade jurídica para actuar em prol da comunidade.</p>
-          <p class="text-gray-600 leading-relaxed">Desde então, a Nhelety tem pautado a sua acção pelos valores da transparência, solidariedade e responsabilidade para com os seus membros e a sociedade moçambicana.</p>
+          <p class="text-gray-600 leading-relaxed mb-4">A Associação Nhelety foi fundada em <strong>27 de Agosto de 2007</strong>, fruto da vontade coletiva de cidadãos comprometidos com o desenvolvimento social de Moçambique. A sua existência foi oficializada pelo Ministério da Justiça da República de Moçambique.</p>
+          <p class="text-gray-600 leading-relaxed mb-4">O ato de reconhecimento foi publicado no <strong>Boletim da República de Moçambique</strong>, III Série — Número 49, em <strong>10 de Dezembro de 2009</strong>, conferindo à associação plena legitimidade jurídica para atuar em prol da comunidade.</p>
+          <p class="text-gray-600 leading-relaxed">Desde então, a Nhelety tem pautado a sua ação pelos valores da transparência, solidariedade e responsabilidade para com os seus membros e a sociedade moçambicana.</p>
         </div>
         <div class="space-y-4">
           <div class="card p-6"><div class="icon-box mb-3" style="background:#FEF3C7">🎯</div><h4 class="font-bold text-lg mb-2">Missão</h4><p class="text-gray-500 text-sm leading-relaxed">Promover o bem-estar social e o desenvolvimento comunitário sustentável em Moçambique, unindo pessoas em torno de causas comuns.</p></div>
-          <div class="card p-6"><div class="icon-box mb-3" style="background:#DCFCE7">🌱</div><h4 class="font-bold text-lg mb-2">Visão</h4><p class="text-gray-500 text-sm leading-relaxed">Uma Moçambique mais solidária, onde cada cidadão tem oportunidade de contribuir e beneficiar do desenvolvimento colectivo.</p></div>
+          <div class="card p-6"><div class="icon-box mb-3" style="background:#DCFCE7">🌱</div><h4 class="font-bold text-lg mb-2">Visão</h4><p class="text-gray-500 text-sm leading-relaxed">Uma Moçambique mais solidária, onde cada cidadão tem oportunidade de contribuir e beneficiar do desenvolvimento coletivo.</p></div>
           <div class="card p-6"><div class="icon-box mb-3" style="background:#FFEDD5">🤝</div><h4 class="font-bold text-lg mb-2">Valores</h4><p class="text-gray-500 text-sm leading-relaxed">Solidariedade, transparência, inclusão, responsabilidade e compromisso com o bem comum.</p></div>
         </div>
       </div>
       <div class="reveal">
-        <h3 class="text-3xl font-bold mb-2 text-center">Estrutura de Governança</h3>
+        <h3 class="text-3xl font-bold mb-2 text-center">Estrutura de Governação</h3>
         <p class="text-center text-gray-500 mb-10">Órgãos sociais conforme os Estatutos oficiais</p>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="card p-6">
@@ -197,7 +197,7 @@
             <div class="flex items-center gap-3 mb-4"><div class="icon-box" style="background:#FFEDD5;font-size:1.4rem">🏛️</div><div><p class="text-xs font-bold uppercase tracking-widest" style="color:var(--laranja)">Gestão Executiva</p><h4 class="font-bold text-lg">Conselho de Direção</h4></div></div>
             <p class="text-gray-500 text-sm leading-relaxed mb-4">Responsável pela gestão corrente e implementação das deliberações da Assembleia Geral.</p>
             <div class="space-y-3">
-              <div class="orgao-card" style="border-left-color:var(--laranja)"><p class="font-bold text-sm">Coordenador-Geral</p><p class="text-xs text-gray-400">Presidente da Direcção</p></div>
+              <div class="orgao-card" style="border-left-color:var(--laranja)"><p class="font-bold text-sm">Coordenador-Geral</p><p class="text-xs text-gray-400">Presidente da Direção</p></div>
               <div class="orgao-card" style="border-left-color:var(--amarelo)"><p class="font-bold text-sm">Adjunto</p><p class="text-xs text-gray-400">Vice-Coordenador</p></div>
               <div class="orgao-card" style="border-left-color:var(--verde)"><p class="font-bold text-sm">Secretário</p><p class="text-xs text-gray-400">Gestão Administrativa</p></div>
             </div>
@@ -224,7 +224,7 @@
           <div class="section-label">O que fazemos</div>
           <div class="accent-line"></div>
           <h2 class="text-4xl md:text-5xl font-black">Atividades & Notícias</h2>
-          <p class="text-gray-500 mt-3 max-w-lg">Acompanhe os projectos, eventos e iniciativas da Associação Nhelety em Moçambique.</p>
+          <p class="text-gray-500 mt-3 max-w-lg">Acompanhe os projetos, eventos e iniciativas da Associação Nhelety em Moçambique.</p>
         </div>
         <button onclick="openAdmin()" class="admin-only btn-ajudar self-start md:self-auto flex-shrink-0" style="background:var(--escuro)">⚙️ Gerir Posts</button>
       </div>
@@ -259,7 +259,7 @@
             <div><label class="form-label" for="f-categoria">Categoria *</label>
               <select id="f-categoria" class="form-input" required>
                 <option value="evento">📅 Evento</option>
-                <option value="projeto">🌱 Projecto</option>
+                <option value="projeto">🌱 Projeto</option>
                 <option value="noticia" selected>📰 Notícia</option>
                 <option value="parceria">🤝 Parceria</option>
               </select>
@@ -293,29 +293,29 @@
       <div class="grid md:grid-cols-2 gap-8 reveal">
         <div class="card p-8 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10" style="background:var(--amarelo);transform:translate(30%,-30%)"></div>
-          <div class="mb-4 flex items-center justify-between"><span class="membro-badge" style="background:var(--amarelo);color:var(--escuro)">Efectivo</span><span class="text-3xl">👥</span></div>
-          <h3 class="text-2xl font-bold mb-3">Membro Efectivo</h3>
-          <p class="text-gray-600 leading-relaxed mb-6">São os membros fundadores ou admitidos que participam activamente na vida associativa. Gozam de todos os direitos estatutários, incluindo o direito de voto nas Assembleias Gerais e de acesso aos cargos sociais.</p>
+          <div class="mb-4 flex items-center justify-between"><span class="membro-badge" style="background:var(--amarelo);color:var(--escuro)">Efetivo</span><span class="text-3xl">👥</span></div>
+          <h3 class="text-2xl font-bold mb-3">Membro Efetivo</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">São os membros fundadores ou admitidos que participam ativamente na vida associativa. Gozam de todos os direitos estatutários, incluindo o direito de voto nas Assembleias Gerais e de acesso aos cargos sociais.</p>
           <div class="space-y-3 mb-6">
             <div class="flex gap-3 items-start"><span style="color:var(--verde)" class="text-lg mt-0.5">✓</span><p class="text-sm text-gray-600">Direito de voto em todas as deliberações</p></div>
             <div class="flex gap-3 items-start"><span style="color:var(--verde)" class="text-lg mt-0.5">✓</span><p class="text-sm text-gray-600">Elegibilidade para cargos nos órgãos sociais</p></div>
-            <div class="flex gap-3 items-start"><span style="color:var(--verde)" class="text-lg mt-0.5">✓</span><p class="text-sm text-gray-600">Acesso a todos os benefícios e actividades</p></div>
+            <div class="flex gap-3 items-start"><span style="color:var(--verde)" class="text-lg mt-0.5">✓</span><p class="text-sm text-gray-600">Acesso a todos os benefícios e atividades</p></div>
             <div class="flex gap-3 items-start"><span style="color:var(--verde)" class="text-lg mt-0.5">✓</span><p class="text-sm text-gray-600">Participação na definição da estratégia associativa</p></div>
           </div>
-          <a href="#contacto" class="btn-ajudar text-sm">Candidatar-me como Efectivo</a>
+          <a href="#contato" class="btn-ajudar text-sm">Candidatar-me como Efetivo</a>
         </div>
         <div class="card p-8 relative overflow-hidden" style="border:2px solid var(--laranja)">
           <div class="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10" style="background:var(--laranja);transform:translate(30%,-30%)"></div>
           <div class="mb-4 flex items-center justify-between"><span class="membro-badge" style="background:var(--laranja);color:#fff">Benemérito</span><span class="text-3xl">⭐</span></div>
           <h3 class="text-2xl font-bold mb-3">Membro Benemérito</h3>
-          <p class="text-gray-600 leading-relaxed mb-6">São pessoas singulares ou colectivas que, pelo seu apoio material, financeiro ou moral relevante, contribuem de forma significativa para a realização dos objectivos da Associação Nhelety.</p>
+          <p class="text-gray-600 leading-relaxed mb-6">São pessoas singulares ou coletivas que, pelo seu apoio material, financeiro ou moral relevante, contribuem de forma significativa para a realização dos objetivos da Associação Nhelety.</p>
           <div class="space-y-3 mb-6">
             <div class="flex gap-3 items-start"><span style="color:var(--laranja)" class="text-lg mt-0.5">★</span><p class="text-sm text-gray-600">Reconhecimento público pelas contribuições</p></div>
             <div class="flex gap-3 items-start"><span style="color:var(--laranja)" class="text-lg mt-0.5">★</span><p class="text-sm text-gray-600">Participação em eventos e iniciativas especiais</p></div>
             <div class="flex gap-3 items-start"><span style="color:var(--laranja)" class="text-lg mt-0.5">★</span><p class="text-sm text-gray-600">Apoio via contribuições materiais ou financeiras</p></div>
             <div class="flex gap-3 items-start"><span style="color:var(--laranja)" class="text-lg mt-0.5">★</span><p class="text-sm text-gray-600">Ligação formal com a missão da associação</p></div>
           </div>
-          <a href="#contacto" class="btn-ajudar text-sm" style="background:var(--laranja-escuro)">Tornar-me Benemérito</a>
+          <a href="#contato" class="btn-ajudar text-sm" style="background:var(--laranja-escuro)">Tornar-me Benemérito</a>
         </div>
       </div>
       <div class="mt-12 card p-8 reveal">
@@ -323,10 +323,10 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Cumprir os estatutos e regulamentos internos da associação</p></div>
           <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Pagar as quotas e contribuições estabelecidas</p></div>
-          <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Participar activamente nas actividades e eventos</p></div>
+          <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Participar ativamente nas atividades e eventos</p></div>
           <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Defender os interesses e a boa imagem da associação</p></div>
           <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Acatar as deliberações dos órgãos sociais</p></div>
-          <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Contribuir para a realização dos objectivos estatutários</p></div>
+          <div class="flex gap-3"><span class="text-green-500 font-bold mt-0.5">→</span><p class="text-sm text-gray-600">Contribuir para a realização dos objetivos estatutários</p></div>
         </div>
       </div>
     </div>
@@ -348,7 +348,7 @@
             <div class="transp-item"><div class="flex gap-4"><div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm" style="background:var(--laranja)">1</div><div><h4 class="font-bold mb-1">Encerramento Anual de Contas</h4><p class="text-sm text-gray-500">As contas anuais são encerradas até ao dia <strong>31 de Março</strong> do ano seguinte ao exercício em causa.</p></div></div></div>
             <div class="transp-item"><div class="flex gap-4"><div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm" style="background:var(--amarelo);color:var(--escuro)">2</div><div><h4 class="font-bold mb-1">Auditoria pelo Conselho Fiscal</h4><p class="text-sm text-gray-500">O Conselho Fiscal examina e certifica as contas, elaborando um relatório e parecer sobre a situação financeira.</p></div></div></div>
             <div class="transp-item"><div class="flex gap-4"><div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm" style="background:var(--verde)">3</div><div><h4 class="font-bold mb-1">Aprovação pela Assembleia Geral</h4><p class="text-sm text-gray-500">O relatório de contas e o parecer são submetidos à apreciação e votação da Assembleia Geral ordinária.</p></div></div></div>
-            <div class="transp-item"><div class="flex gap-4"><div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm" style="background:var(--escuro)">4</div><div><h4 class="font-bold mb-1">Divulgação aos Membros</h4><p class="text-sm text-gray-500">Todos os membros têm direito de acesso à informação sobre a actividade e situação financeira.</p></div></div></div>
+            <div class="transp-item"><div class="flex gap-4"><div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm" style="background:var(--escuro)">4</div><div><h4 class="font-bold mb-1">Divulgação aos Membros</h4><p class="text-sm text-gray-500">Todos os membros têm direito de acesso à informação sobre a atividade e situação financeira.</p></div></div></div>
           </div>
         </div>
         <div>
@@ -356,7 +356,8 @@
           <div class="space-y-4">
             <div class="card p-5 flex gap-4 items-start"><div class="text-3xl">📄</div><div><h4 class="font-bold mb-1">Boletim da República</h4><p class="text-sm text-gray-500 mb-2">Publicação oficial do reconhecimento pelo Ministério da Justiça de Moçambique.</p><p class="text-xs font-bold" style="color:var(--laranja)">III Série — N.º 49 · 10 de Dezembro de 2009</p></div></div>
             <div class="card p-5 flex gap-4 items-start"><div class="text-3xl">📋</div><div><h4 class="font-bold mb-1">Estatutos da Associação</h4><p class="text-sm text-gray-500 mb-2">Documento constitutivo que define os fins, estrutura e funcionamento da Associação Nhelety.</p><p class="text-xs font-bold" style="color:var(--laranja)">Registados no Ministério da Justiça · 2009</p></div></div>
-            <div class="card p-5 flex gap-4 items-start"><div class="text-3xl">📅</div><div><h4 class="font-bold mb-1">Relatórios Anuais</h4><p class="text-sm text-gray-500 mb-2">Relatórios de actividades e contas elaborados anualmente e aprovados em Assembleia Geral.</p><p class="text-xs font-bold" style="color:var(--verde-escuro)">Disponíveis mediante solicitação aos membros</p></div></div>
+            <div class="card p-5 flex gap-4 items-start" style="border-left:4px solid var(--verde)"><div class="text-3xl">🏅</div><div><h4 class="font-bold mb-1">Certidão Definitiva</h4><p class="text-sm text-gray-500 mb-2">Documento emitido pelo Ministério da Justiça da República de Moçambique que certifica, em carácter definitivo, o reconhecimento legal e a plena capacidade jurídica da Associação Nhelety para prosseguir os seus fins estatutários.</p><p class="text-xs font-bold" style="color:var(--verde-escuro)">Emitida pelo Ministério da Justiça · República de Moçambique</p></div></div>
+            <div class="card p-5 flex gap-4 items-start"><div class="text-3xl">📅</div><div><h4 class="font-bold mb-1">Relatórios Anuais</h4><p class="text-sm text-gray-500 mb-2">Relatórios de atividades e contas elaborados anualmente e aprovados em Assembleia Geral.</p><p class="text-xs font-bold" style="color:var(--verde-escuro)">Disponíveis mediante solicitação aos membros</p></div></div>
           </div>
           <div class="mt-6 border-2 rounded-xl p-5 flex gap-4 items-center" style="border-color:var(--amarelo);background:rgba(245,197,24,0.05)">
             <div class="text-4xl">🏛️</div>
@@ -393,7 +394,7 @@
         </div>
         <div class="card p-5 text-center">
           <div class="text-3xl font-black mb-1" style="color:var(--amarelo)">18</div>
-          <p class="text-xs text-gray-500 font-medium">Anos de<br/>presença activa</p>
+          <p class="text-xs text-gray-500 font-medium">Anos de<br/>presença ativa</p>
         </div>
         <div class="card p-5 text-center">
           <div class="text-3xl font-black mb-1" style="color:var(--laranja)">100%</div>
@@ -412,8 +413,8 @@
           <p class="text-sm text-gray-500 mb-4">Transferência rápida e segura pelo telemóvel. Disponível 24h.</p>
           <div class="rounded-xl p-4 mb-4" style="background:#F0FDF4">
             <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest mb-1">Número</p>
-            <p class="text-2xl font-black" style="color:var(--verde-escuro)">+258 84 399 8948</p>
-            <p class="text-xs text-gray-400 mt-1">Em nome de: Ana Paula Machel</p>
+            <p class="text-2xl font-black" style="color:var(--verde-escuro)">+258 8X XXX XXXX</p>
+            <p class="text-xs text-gray-400 mt-1">Em nome de: Associação Nhelety</p>
           </div>
           <p class="text-xs text-gray-400">Após a transferência, envie o comprovativo para o nosso e-mail.</p>
         </div>
@@ -442,11 +443,11 @@
           <h3 class="font-bold text-lg mb-2">Donativo Presencial</h3>
           <p class="text-sm text-gray-500 mb-4">Prefere entregar pessoalmente? Aceitamos géneros, material escolar, roupas e outros bens.</p>
           <div class="rounded-xl p-4 mb-4" style="background:#EDE9FE">
-            <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest mb-1">Contacto</p>
+            <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest mb-1">Contato</p>
             <p class="font-bold text-sm" style="color:#4C1D95">Agende através do formulário</p>
             <p class="text-xs text-gray-400 mt-1">Ou pelas redes sociais</p>
           </div>
-          <a href="#contacto" class="btn-ajudar text-sm w-full text-center block">Entrar em contacto</a>
+          <a href="#contato" class="btn-ajudar text-sm w-full text-center block">Entrar em contato</a>
         </div>
 
       </div>
@@ -471,14 +472,14 @@
     </div>
   </section>
 
-  <!-- ⑧ Contacto -->
-  <section id="contacto" class="py-24" style="background:linear-gradient(135deg,#1A1A0E 0%,#2D2D1A 100%)">
+  <!-- ⑧ Contato -->
+  <section id="contato" class="py-24" style="background:linear-gradient(135deg,#1A1A0E 0%,#2D2D1A 100%)">
     <div class="max-w-5xl mx-auto px-5">
       <div class="text-center mb-14 reveal">
         <div class="section-label" style="color:var(--amarelo)">Junte-se a nós</div>
         <div class="accent-line mx-auto"></div>
-        <h2 class="text-4xl md:text-5xl font-black mb-4 text-white">Candidatura & Contacto</h2>
-        <p class="max-w-xl mx-auto" style="color:rgba(255,255,255,0.6)">Interessado em fazer parte da Associação Nhelety ou em apoiar a nossa missão? Preencha o formulário e entraremos em contacto.</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-4 text-white">Candidatura & Contato</h2>
+        <p class="max-w-xl mx-auto" style="color:rgba(255,255,255,0.6)">Interessado em fazer parte da Associação Nhelety ou em apoiar a nossa missão? Preencha o formulário e entraremos em contato.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8 reveal">
         <div class="space-y-6">
@@ -505,8 +506,8 @@
             </div>
             <div><label class="form-label" for="tipo">Tipo de Membro *</label>
               <select id="tipo" class="form-input" required>
-                <option value="">Seleccione o tipo de adesão...</option>
-                <option value="efectivo">Membro Efectivo — Participação activa</option>
+                <option value="">Selecione o tipo de adesão...</option>
+                <option value="efetivo">Membro Efetivo — Participação ativa</option>
                 <option value="benemérito">Membro Benemérito — Apoio material/financeiro</option>
                 <option value="info">Apenas solicitar informações</option>
               </select>
@@ -542,7 +543,7 @@
             <li><a href="#membros"       class="text-sm hover:text-yellow-400 transition-colors" style="color:rgba(255,255,255,0.5)">Categorias de Membros</a></li>
             <li><a href="#transparencia" class="text-sm hover:text-yellow-400 transition-colors" style="color:rgba(255,255,255,0.5)">Transparência</a></li>
             <li><a href="#doacoes"       class="text-sm hover:text-yellow-400 transition-colors" style="color:rgba(255,255,255,0.5)">Doações</a></li>
-            <li><a href="#contacto"      class="text-sm hover:text-yellow-400 transition-colors" style="color:rgba(255,255,255,0.5)">Candidatura & Contacto</a></li>
+            <li><a href="#contato"      class="text-sm hover:text-yellow-400 transition-colors" style="color:rgba(255,255,255,0.5)">Candidatura & Contato</a></li>
           </ul>
           <!-- Redes Sociais -->
           <div class="mt-6">
@@ -588,14 +589,14 @@
     toast.js       → Função global showToast()   (carregar primeiro)
     navbar.js      → Scroll, menu mobile, smooth scroll
     animations.js  → Reveal on scroll
-    contacto.js    → Validação do formulário
+    contato.js    → Validação do formulário
     atividades.js  → Gestão completa de posts + painel admin
     ═══════════════════════════════════════════
   -->
   <script src="js/toast.js"></script>
   <script src="js/navbar.js"></script>
   <script src="js/animations.js"></script>
-  <script src="js/contacto.js"></script>
+  <script src="js/contato.js"></script>
   <script src="js/atividades.js"></script>
 
 </body>

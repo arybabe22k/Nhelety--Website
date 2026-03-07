@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════
    toast.js — Notificações de feedback (toast)
-   Usado por contacto.js e atividades.js
+   Usado por contato.js e atividades.js
    Associação Nhelety
    ══════════════════════════════════════════════ */
 

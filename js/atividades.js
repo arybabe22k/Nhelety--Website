@@ -36,7 +36,7 @@
 
   const CATEGORIAS = {
     evento:   { label: 'Evento',   emoji: '📅', css: 'cat-evento'   },
-    projeto:  { label: 'Projecto', emoji: '🌱', css: 'cat-projeto'  },
+    projeto:  { label: 'Projeto', emoji: '🌱', css: 'cat-projeto'  },
     noticia:  { label: 'Notícia',  emoji: '📰', css: 'cat-noticia'  },
     parceria: { label: 'Parceria', emoji: '🤝', css: 'cat-parceria' },
   };
@@ -264,7 +264,7 @@
 
     if (!titulo)    { errEl.textContent = 'O título é obrigatório.'; return; }
     if (!resumo)    { errEl.textContent = 'O resumo é obrigatório.'; return; }
-    if (!categoria) { errEl.textContent = 'Seleccione uma categoria.'; return; }
+    if (!categoria) { errEl.textContent = 'Selecione uma categoria.'; return; }
     if (!data)      { errEl.textContent = 'A data é obrigatória.'; return; }
 
     const posts = carregarPosts();
@@ -283,7 +283,7 @@
 
   window.eliminarPost = function (id) {
     if (!adminMode) return;
-    if (!confirm('Tem a certeza que deseja eliminar este post? Esta acção é irreversível.')) return;
+    if (!confirm('Tem a certeza que deseja eliminar este post? Esta ação é irreversível.')) return;
     guardarPosts(carregarPosts().filter(p => p.id !== id));
     renderPublico();
     renderAdminLista();
