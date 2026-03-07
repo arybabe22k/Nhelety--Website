@@ -1,0 +1,94 @@
+<!-- ════════════════════════════════════════
+     sections/hero.html — Secção Hero + Stats
+     Associação Nhelety
+     ════════════════════════════════════════ -->
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-pattern"></div>
+
+  <!-- Círculos decorativos -->
+  <div class="deco-circle w-72 h-72 bg-yellow-300" style="right:-60px;top:-40px;animation-delay:0s"></div>
+  <div class="deco-circle w-48 h-48 bg-orange-400" style="left:-30px;bottom:10%;animation-delay:2s"></div>
+  <div class="deco-circle w-36 h-36 bg-green-400"  style="right:15%;bottom:15%;animation-delay:4s"></div>
+
+  <div class="max-w-6xl mx-auto px-5 py-24 relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- Texto -->
+      <div>
+        <div class="hero-badge mb-6">
+          <span>🇲🇿</span> Desde 2007 • Moçambique
+        </div>
+        <h1 class="hero-title mb-6">
+          Juntos pela<br/><span>Mudança</span><br/>em Moçambique
+        </h1>
+        <p class="hero-sub mb-10">
+          A Associação Nhelety une esforços para promover o bem-estar social, a solidariedade e o
+          desenvolvimento comunitário em Moçambique — com transparência, governança e propósito.
+        </p>
+        <div class="hero-ctas flex flex-wrap gap-4">
+          <a href="#contacto" class="btn-ajudar text-base">❤ Ajudar Agora</a>
+          <a href="#sobre"    class="btn-secundario text-base">Conhecer-nos</a>
+        </div>
+        <p class="mt-8 text-xs text-gray-400 font-medium">
+          ✔ Publicada no Boletim da República · 10 de Dezembro de 2009
+        </p>
+      </div>
+
+      <!-- Ilustração -->
+      <div class="hidden md:flex justify-center items-center">
+        <div class="relative">
+          <div class="w-80 h-80 rounded-full flex items-center justify-center"
+               style="background:linear-gradient(135deg,var(--amarelo) 0%,var(--laranja) 100%)">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-64 h-64">
+              <circle cx="60"  cy="60"  r="18" fill="white" opacity="0.9"/>
+              <rect   x="48"  y="82"  width="24" height="36" rx="12" fill="white" opacity="0.9"/>
+              <circle cx="100" cy="55" r="20" fill="white"/>
+              <rect   x="86"  y="79"  width="28" height="40" rx="14" fill="white"/>
+              <circle cx="140" cy="60" r="18" fill="white" opacity="0.9"/>
+              <rect   x="128" y="82"  width="24" height="36" rx="12" fill="white" opacity="0.9"/>
+              <path d="M72 100 Q86 95 100 100 Q114 95 128 100"
+                    fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="40"  cy="140" r="5" fill="white" opacity="0.7"/>
+              <circle cx="160" cy="140" r="5" fill="white" opacity="0.7"/>
+              <circle cx="100" cy="155" r="7" fill="white" opacity="0.8"/>
+              <text x="100" y="185" text-anchor="middle" fill="white"
+                    font-size="14" font-family="'Playfair Display',serif" font-weight="700" opacity="0.9">
+                Nhelety
+              </text>
+            </svg>
+          </div>
+          <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl p-3 shadow-xl border border-yellow-200">
+            <p class="text-xs font-bold text-gray-500">Oficialmente</p>
+            <p class="text-sm font-black" style="color:var(--laranja)">Reconhecida</p>
+            <p class="text-xs text-gray-400">desde 2009</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BARRA DE ESTATÍSTICAS -->
+<div class="stats-bar py-6">
+  <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4">
+    <div class="stat-item px-6 py-2 text-center">
+      <div class="text-2xl font-black" style="color:var(--amarelo)">2007</div>
+      <div class="text-xs text-gray-400 mt-1">Ano de Fundação</div>
+    </div>
+    <div class="stat-item px-6 py-2 text-center">
+      <div class="text-2xl font-black" style="color:var(--verde)">2009</div>
+      <div class="text-xs text-gray-400 mt-1">Reconhecimento Oficial</div>
+    </div>
+    <div class="stat-item px-6 py-2 text-center">
+      <div class="text-2xl font-black" style="color:var(--laranja)">3</div>
+      <div class="text-xs text-gray-400 mt-1">Órgãos Sociais</div>
+    </div>
+    <div class="stat-item px-6 py-2 text-center">
+      <div class="text-2xl font-black" style="color:var(--amarelo)">MZ</div>
+      <div class="text-xs text-gray-400 mt-1">Moçambique</div>
+    </div>
+  </div>
+</div>

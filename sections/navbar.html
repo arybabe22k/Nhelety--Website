@@ -1,0 +1,59 @@
+<!-- ════════════════════════════════════════
+     sections/navbar.html — Barra de Navegação
+     Associação Nhelety
+     ════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-3 group">
+      <div class="relative w-10 h-10 flex-shrink-0">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+          <circle cx="40" cy="40" r="38" fill="#F5C518"/>
+          <circle cx="40" cy="40" r="38" fill="none" stroke="#E8531E" stroke-width="4"/>
+          <circle cx="27" cy="28" r="6" fill="#E8531E"/>
+          <path d="M17 50 Q27 38 37 50" fill="#E8531E"/>
+          <circle cx="53" cy="28" r="6" fill="#7DC242"/>
+          <path d="M43 50 Q53 38 63 50" fill="#7DC242"/>
+          <path d="M35 47 Q40 43 45 47" fill="none" stroke="#1A1A0E" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31 56 Q40 60 49 56" fill="none" stroke="#1A1A0E" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="font-black text-sm leading-none" style="font-family:'Playfair Display',serif; color:var(--escuro)">Nhelety</div>
+        <div class="text-xs text-gray-400 font-medium leading-none">Associação</div>
+      </div>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#sobre"         class="nav-link text-sm">Sobre Nós</a>
+      <a href="#atividades"    class="nav-link text-sm">Atividades</a>
+      <a href="#membros"       class="nav-link text-sm">Membros</a>
+      <a href="#transparencia" class="nav-link text-sm">Transparência</a>
+      <a href="#contacto"      class="nav-link text-sm">Contacto</a>
+      <button onclick="openAdmin()" class="nav-link text-sm" title="Gerir Posts">⚙️ Admin</button>
+      <a href="#contacto" class="btn-ajudar text-sm">Ajudar Agora</a>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+      <span class="w-6 h-0.5 bg-gray-800 transition-all" id="h1"></span>
+      <span class="w-6 h-0.5 bg-gray-800 transition-all" id="h2"></span>
+      <span class="w-6 h-0.5 bg-gray-800 transition-all" id="h3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <div class="flex flex-col gap-5">
+      <a href="#sobre"         class="nav-link text-base mobile-nav-link">Sobre Nós</a>
+      <a href="#atividades"    class="nav-link text-base mobile-nav-link">Atividades</a>
+      <a href="#membros"       class="nav-link text-base mobile-nav-link">Membros</a>
+      <a href="#transparencia" class="nav-link text-base mobile-nav-link">Transparência</a>
+      <a href="#contacto"      class="nav-link text-base mobile-nav-link">Contacto</a>
+      <button onclick="openAdmin()" class="nav-link text-base text-left mobile-nav-link">⚙️ Gerir Atividades</button>
+      <a href="#contacto" class="btn-ajudar text-center mt-2 mobile-nav-link">Ajudar Agora</a>
+    </div>
+  </div>
+</nav>
