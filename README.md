@@ -23,9 +23,3 @@ nhelety/
 - Painel de gestão de posts (acesso via URL secreta `?key=`)
 - Redes sociais: Instagram `@ass.nhelety` · Facebook `Associacao Nhelety`
 - Formulário de candidatura com validação
-
-## Como publicar
-Faça upload da pasta `nhelety/` para qualquer serviço de hospedagem estática (GitHub Pages, Netlify, Vercel).
-
-## Acesso Admin
-O painel de gestão de atividades é protegido por URL secreta. Consulte `js/atividades.js` para configurar a chave de acesso (`ADMIN_KEY`).
