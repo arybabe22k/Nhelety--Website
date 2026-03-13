@@ -1,11 +1,8 @@
-/* ══════════════════════════════════════════════
+ ══════════════════════════════════════════════
    atividades.css — Secção de posts/atividades
    e painel de administração
    Associação Nhelety
    ══════════════════════════════════════════════ */
-
-/* ── ADMIN: escondido por defeito, revelado pelo JS apenas com ?key= ── */
-.admin-only { display: none; }
 
 /* ── CARDS DE POST ── */
 .post-card {
