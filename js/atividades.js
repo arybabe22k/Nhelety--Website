@@ -4,10 +4,10 @@
    Inclui suporte a upload de imagens e vídeos
    Associação Nhelety
    ══════════════════════════════════════════════ */
-
+ 
 (function () {
   'use strict';
-
+ 
   /* ─────────────────────────────────────────────
      🔐 CONFIGURAÇÃO DE ACESSO ADMIN
      O painel Admin só aparece quando o URL contém
@@ -18,28 +18,28 @@
   const ADMIN_KEY = 'nhelety2025';
   const params    = new URLSearchParams(window.location.search);
   const adminMode = params.get('key') === ADMIN_KEY;
-
+ 
   function aplicarVisibilidadeAdmin() {
     document.querySelectorAll('.admin-only').forEach(el => {
       el.style.display = adminMode ? '' : 'none';
     });
   }
-
+ 
   /* ─────────────────────────────────────────────
      ESTADO
   ───────────────────────────────────────────── */
   const STORAGE_KEY = 'nhelety_posts';
-
+ 
   // Media temporária durante edição (não persiste até guardar)
   let mediaTemp = { imagem: null, video: null };
-
+ 
   const CATEGORIAS = {
     evento:   { label: 'Evento',   emoji: '📅', css: 'cat-evento'   },
     projeto:  { label: 'Projeto',  emoji: '🌱', css: 'cat-projeto'  },
     noticia:  { label: 'Notícia',  emoji: '📰', css: 'cat-noticia'  },
     parceria: { label: 'Parceria', emoji: '🤝', css: 'cat-parceria' },
   };
-
+ 
   const POSTS_EXEMPLO = [
     {
       id: 'p1',
@@ -63,7 +63,7 @@
       imagem: null, video: null,
     },
   ];
-
+ 
   /* ─────────────────────────────────────────────
      PERSISTÊNCIA
   ───────────────────────────────────────────── */
@@ -73,7 +73,7 @@
       return raw ? JSON.parse(raw) : POSTS_EXEMPLO;
     } catch { return POSTS_EXEMPLO; }
   }
-
+ 
   function guardarPosts(posts) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
@@ -85,7 +85,7 @@
       }
     }
   }
-
+ 
   /* ─────────────────────────────────────────────
      UTILITÁRIOS
   ───────────────────────────────────────────── */
@@ -95,20 +95,20 @@
     const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
     return `${+d} ${meses[+m - 1]} ${a}`;
   }
-
+ 
   function gerarId() { return 'p' + Date.now(); }
-
+ 
   function tamanhoLegivel(bytes) {
     if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
     return (bytes / 1048576).toFixed(1) + ' MB';
   }
-
+ 
   /* ─────────────────────────────────────────────
      LEITURA DE FICHEIROS (FileReader → base64)
   ───────────────────────────────────────────── */
   const LIMITE_IMG = 5  * 1024 * 1024;  // 5 MB
   const LIMITE_VID = 50 * 1024 * 1024;  // 50 MB
-
+ 
   function lerBase64(file) {
     return new Promise((res, rej) => {
       const r = new FileReader();
@@ -117,7 +117,7 @@
       r.readAsDataURL(file);
     });
   }
-
+ 
   function lerVideoComProgresso(file) {
     return new Promise((res, rej) => {
       const r   = new FileReader();
@@ -137,7 +137,7 @@
       r.readAsDataURL(file);
     });
   }
-
+ 
   /* ─────────────────────────────────────────────
      DRAG & DROP
   ───────────────────────────────────────────── */
@@ -153,7 +153,7 @@
       if (f) await callback(f);
     });
   }
-
+ 
   /* ─────────────────────────────────────────────
      PREVIEWS
   ───────────────────────────────────────────── */
@@ -162,7 +162,7 @@
     document.getElementById('f-imagem-preview').style.display     = 'block';
     document.getElementById('f-imagem-thumb').src = src;
   }
-
+ 
   function mostrarPreviewVideo(src) {
     document.getElementById('f-video-placeholder').style.display = 'none';
     document.getElementById('f-video-preview').style.display     = 'block';
@@ -170,7 +170,7 @@
     v.src = src;
     v.load();
   }
-
+ 
   // Exposto globalmente para os botões "Remover"
   window.limparFicheiro = function (tipo, event) {
     event.stopPropagation(); // não abrir o seletor de ficheiros
@@ -187,7 +187,7 @@
       document.getElementById('f-video-thumb').src = '';
     }
   };
-
+ 
   /* ─────────────────────────────────────────────
      INICIAR HANDLERS DE UPLOAD
   ───────────────────────────────────────────── */
@@ -209,7 +209,7 @@
           mostrarPreviewImagem(b64);
         } catch { showToast('❌ Erro ao carregar imagem.'); }
       });
-
+ 
       configurarDragDrop('f-imagem-drop', async f => {
         if (!f.type.startsWith('image/')) { showToast('⚠️ Ficheiro não é uma imagem.'); return; }
         if (f.size > LIMITE_IMG)          { showToast('⚠️ Imagem demasiado grande. Máximo: 5 MB.'); return; }
@@ -218,7 +218,7 @@
         mostrarPreviewImagem(b64);
       });
     }
-
+ 
     // ── Vídeo ──
     const inputVid = document.getElementById('f-video');
     if (inputVid) {
@@ -236,7 +236,7 @@
           mostrarPreviewVideo(b64);
         } catch { showToast('❌ Erro ao carregar vídeo.'); }
       });
-
+ 
       configurarDragDrop('f-video-drop', async f => {
         if (!f.type.startsWith('video/')) { showToast('⚠️ Ficheiro não é um vídeo.'); return; }
         if (f.size > LIMITE_VID)          { showToast('⚠️ Vídeo demasiado grande. Máximo: 50 MB.'); return; }
@@ -246,27 +246,27 @@
       });
     }
   }
-
+ 
   /* ─────────────────────────────────────────────
      RENDERIZAÇÃO PÚBLICA
   ───────────────────────────────────────────── */
   let filtroActivo = 'todos';
-
+ 
   function renderPublico() {
     const container = document.getElementById('posts-grid');
     if (!container) return;
-
+ 
     const posts = carregarPosts();
     const filtrados = (filtroActivo === 'todos')
       ? posts
       : posts.filter(p => p.categoria === filtroActivo);
-
+ 
     filtrados.sort((a, b) => {
       if (a.destaque && !b.destaque) return -1;
       if (!a.destaque && b.destaque) return 1;
       return new Date(b.data) - new Date(a.data);
     });
-
+ 
     if (filtrados.length === 0) {
       container.innerHTML = `
         <div class="empty-state col-span-full">
@@ -276,10 +276,10 @@
         </div>`;
       return;
     }
-
+ 
     container.innerHTML = filtrados.map(post => {
       const cat = CATEGORIAS[post.categoria] || CATEGORIAS.noticia;
-
+ 
       // Media: imagem tem prioridade sobre vídeo
       let mediaHTML = '';
       if (post.imagem) {
@@ -287,13 +287,13 @@
       } else if (post.video) {
         mediaHTML = `<video src="${post.video}" class="post-video" controls preload="metadata"></video>`;
       }
-
+ 
       const btnEditar = adminMode
         ? `<button onclick="abrirAdmin('editar','${post.id}')"
-             class="admin-only text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-200
+             class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-200
                     hover:border-orange-400 hover:text-orange-500 transition-colors">✏️ Editar</button>`
         : '';
-
+ 
       return `
         <article class="post-card flex flex-col">
           ${mediaHTML}
@@ -316,7 +316,7 @@
         </article>`;
     }).join('');
   }
-
+ 
   function renderFiltros() {
     const wrap = document.getElementById('filtros-categoria');
     if (!wrap) return;
@@ -329,19 +329,19 @@
         ${op.emoji} ${op.label}
       </button>`).join('');
   }
-
+ 
   window.filtrarPosts = function (cat) {
     filtroActivo = cat;
     renderFiltros();
     renderPublico();
   };
-
+ 
   /* ─────────────────────────────────────────────
      PAINEL ADMIN — protegido por adminMode
   ───────────────────────────────────────────── */
   let adminAba   = 'lista';
   let editandoId = null;
-
+ 
   window.openAdmin = function () {
     if (!adminMode) {
       showToast('🔒 Acesso restrito. Utilize o link de administração.');
@@ -351,20 +351,20 @@
     document.body.style.overflow = 'hidden';
     mudarAba('lista');
   };
-
+ 
   window.closeAdmin = function () {
     document.getElementById('admin-panel').classList.remove('open');
     document.body.style.overflow = '';
     editandoId = null;
     mediaTemp = { imagem: null, video: null };
   };
-
+ 
   window.abrirAdmin = function (aba, id) {
     if (!adminMode) return;
     openAdmin();
     if (aba === 'editar' && id) { editandoId = id; mudarAba('editar'); }
   };
-
+ 
   function mudarAba(aba) {
     adminAba = aba;
     document.querySelectorAll('.admin-tab').forEach(t => t.classList.toggle('active', t.dataset.aba === aba));
@@ -374,11 +374,11 @@
     if (aba === 'novo')   preencherForm(null);
     if (aba === 'editar') preencherForm(carregarPosts().find(p => p.id === editandoId) || null);
   }
-
+ 
   document.querySelectorAll('.admin-tab').forEach(tab => {
     tab.addEventListener('click', () => mudarAba(tab.dataset.aba));
   });
-
+ 
   function renderAdminLista() {
     const lista = document.getElementById('admin-lista-posts');
     const posts = carregarPosts();
@@ -415,7 +415,7 @@
         </div>`;
     }).join('');
   }
-
+ 
   function preencherForm(post) {
     document.getElementById('admin-form-titulo').textContent  = post ? 'Editar Post' : 'Novo Post';
     document.getElementById('f-titulo').value     = post?.titulo    || '';
@@ -425,17 +425,17 @@
     document.getElementById('f-autor').value      = post?.autor     || '';
     document.getElementById('f-destaque').checked = !!post?.destaque;
     if (!post) editandoId = null;
-
+ 
     // Restaurar media do post existente para mediaTemp
     mediaTemp.imagem = post?.imagem || null;
     mediaTemp.video  = post?.video  || null;
-
+ 
     // Restaurar previews
     const imgPrev = document.getElementById('f-imagem-preview');
     const imgPh   = document.getElementById('f-imagem-placeholder');
     const vidPrev = document.getElementById('f-video-preview');
     const vidPh   = document.getElementById('f-video-placeholder');
-
+ 
     if (mediaTemp.imagem) {
       imgPrev.style.display = 'block'; imgPh.style.display = 'none';
       document.getElementById('f-imagem-thumb').src = mediaTemp.imagem;
@@ -443,7 +443,7 @@
       imgPrev.style.display = 'none'; imgPh.style.display = 'flex';
       document.getElementById('f-imagem-thumb').src = '';
     }
-
+ 
     if (mediaTemp.video) {
       vidPrev.style.display = 'block'; vidPh.style.display = 'none';
       const v = document.getElementById('f-video-thumb');
@@ -452,46 +452,46 @@
       vidPrev.style.display = 'none'; vidPh.style.display = 'flex';
       document.getElementById('f-video-thumb').src = '';
     }
-
+ 
     // Limpar inputs de ficheiro
     document.getElementById('f-imagem').value = '';
     document.getElementById('f-video').value  = '';
     document.getElementById('f-video-progress').style.display = 'none';
   }
-
+ 
   document.getElementById('admin-form').addEventListener('submit', function (e) {
     e.preventDefault();
     if (!adminMode) return;
-
+ 
     const errEl = document.getElementById('admin-form-error');
     errEl.textContent = '';
-
+ 
     const titulo    = document.getElementById('f-titulo').value.trim();
     const resumo    = document.getElementById('f-resumo').value.trim();
     const categoria = document.getElementById('f-categoria').value;
     const data      = document.getElementById('f-data').value;
     const autor     = document.getElementById('f-autor').value.trim();
     const destaque  = document.getElementById('f-destaque').checked;
-
+ 
     if (!titulo)    { errEl.textContent = 'O título é obrigatório.'; return; }
     if (!resumo)    { errEl.textContent = 'O resumo é obrigatório.'; return; }
     if (!categoria) { errEl.textContent = 'Selecione uma categoria.'; return; }
     if (!data)      { errEl.textContent = 'A data é obrigatória.'; return; }
-
+ 
     const posts = carregarPosts();
     const dadosPost = {
       titulo, resumo, categoria, data, autor, destaque,
       imagem: mediaTemp.imagem,
       video:  mediaTemp.video,
     };
-
+ 
     if (editandoId) {
       const idx = posts.findIndex(p => p.id === editandoId);
       if (idx !== -1) posts[idx] = { ...posts[idx], ...dadosPost };
     } else {
       posts.unshift({ id: gerarId(), ...dadosPost });
     }
-
+ 
     guardarPosts(posts);
     renderPublico();
     showToast(editandoId ? '✅ Post actualizado com sucesso!' : '✅ Post publicado com sucesso!');
@@ -499,7 +499,7 @@
     mediaTemp  = { imagem: null, video: null };
     mudarAba('lista');
   });
-
+ 
   window.eliminarPost = function (id) {
     if (!adminMode) return;
     if (!confirm('Tem a certeza que deseja eliminar este post? Esta ação é irreversível.')) return;
@@ -508,17 +508,27 @@
     renderAdminLista();
     showToast('🗑️ Post eliminado.');
   };
-
+ 
   document.getElementById('admin-panel').addEventListener('click', function (e) {
     if (e.target === this) closeAdmin();
   });
-
+ 
   /* ─────────────────────────────────────────────
      INICIALIZAÇÃO
   ───────────────────────────────────────────── */
-  aplicarVisibilidadeAdmin();
-  iniciarUploadHandlers();
-  renderFiltros();
-  renderPublico();
+  function init() {
+    aplicarVisibilidadeAdmin();
+    iniciarUploadHandlers();
+    renderFiltros();
+    renderPublico();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+ 
+})();
 
 })();
