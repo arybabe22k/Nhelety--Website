@@ -1,61 +1,57 @@
 /* ══════════════════════════════════════════════
-   contato.js — Validação e envio do formulário
+   contato.js — Validação do formulário de candidatura
    Associação Nhelety
    ══════════════════════════════════════════════ */
 
 (function () {
   'use strict';
 
-  const form     = document.getElementById('form-candidatura');
-  const errorBox = document.getElementById('form-error');
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('form-candidatura');
+    if (!form) return;
 
-  if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    clearError();
+      const nome     = document.getElementById('nome')?.value.trim();
+      const email    = document.getElementById('email')?.value.trim();
+      const tipo     = document.getElementById('tipo')?.value;
+      const mensagem = document.getElementById('mensagem')?.value.trim();
+      const errEl    = document.getElementById('form-error');
 
-    const nome     = document.getElementById('nome').value.trim();
-    const email    = document.getElementById('email').value.trim();
-    const tipo     = document.getElementById('tipo').value;
-    const mensagem = document.getElementById('mensagem').value.trim();
+      // Limpar erro anterior
+      if (errEl) { errEl.textContent = ''; errEl.classList.add('hidden'); }
 
-    // ── Validações ──
-    if (!nome || nome.length < 3) {
-      return showError('Por favor, introduza o seu nome completo (mínimo 3 caracteres).');
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return showError('Por favor, introduza um endereço de e-mail válido.');
-    }
-    if (!tipo) {
-      return showError('Por favor, selecione o tipo de adesão.');
-    }
-    if (!mensagem || mensagem.length < 20) {
-      return showError('A mensagem deve ter pelo menos 20 caracteres. Conte-nos mais sobre si.');
-    }
+      // Validação
+      if (!nome) {
+        mostrarErro(errEl, 'Por favor, introduza o seu nome completo.');
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        mostrarErro(errEl, 'Por favor, introduza um endereço de e-mail válido.');
+        return;
+      }
+      if (!tipo) {
+        mostrarErro(errEl, 'Por favor, selecione o tipo de adesão.');
+        return;
+      }
+      if (!mensagem) {
+        mostrarErro(errEl, 'Por favor, escreva uma mensagem.');
+        return;
+      }
 
-    // ── Simulação de envio ──
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'A enviar...';
-
-    setTimeout(() => {
+      // Sucesso — mostrar toast e limpar formulário
+      if (typeof showToast === 'function') {
+        showToast('✅ Candidatura enviada com sucesso! Entraremos em contato em breve.');
+      }
       form.reset();
-      btn.disabled = false;
-      btn.textContent = 'Enviar Candidatura ✉';
-      showToast('✅ Candidatura enviada com sucesso! Entraremos em contato em breve.');
-    }, 1200);
+    });
+
+    function mostrarErro(el, msg) {
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
   });
-
-  function showError(msg) {
-    errorBox.textContent = msg;
-    errorBox.classList.remove('hidden');
-    errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  function clearError() {
-    errorBox.classList.add('hidden');
-    errorBox.textContent = '';
-  }
 
 })();
