@@ -180,7 +180,7 @@
         </div>
         <div class="space-y-4">
           <div class="card p-6"><div class="icon-box mb-3" style="background:#FEF3C7">🎯</div><h4 class="font-bold text-lg mb-2">Missão</h4><p class="text-gray-500 text-sm leading-relaxed">Promover o bem-estar social e o desenvolvimento comunitário sustentável em Moçambique, unindo pessoas em torno de causas comuns.</p></div>
-          <div class="card p-6"><div class="icon-box mb-3" style="background:#DCFCE7">🌱</div><h4 class="font-bold text-lg mb-2">Visão</h4><p class="text-gray-500 text-sm leading-relaxed">Um Moçambique mais solidário, onde cada cidadão tem oportunidade de contribuir e beneficiar do desenvolvimento coletivo.</p></div>
+          <div class="card p-6"><div class="icon-box mb-3" style="background:#DCFCE7">🌱</div><h4 class="font-bold text-lg mb-2">Visão</h4><p class="text-gray-500 text-sm leading-relaxed">Uma Moçambique mais solidária, onde cada cidadão tem oportunidade de contribuir e beneficiar do desenvolvimento coletivo.</p></div>
           <div class="card p-6"><div class="icon-box mb-3" style="background:#FFEDD5">🤝</div><h4 class="font-bold text-lg mb-2">Valores</h4><p class="text-gray-500 text-sm leading-relaxed">Solidariedade, transparência, inclusão, responsabilidade e compromisso com o bem comum.</p></div>
         </div>
       </div>
@@ -233,30 +233,52 @@
     </div>
   </section>
 
-  <!-- Modal Admin -->
-  <div id="admin-panel" role="dialog" aria-modal="true">
+  <!-- Modal Admin — atualizado com campos de imagem e vídeo -->
+  <div id="admin-panel" role="dialog" aria-modal="true" aria-label="Painel de administração de posts">
     <div class="admin-modal">
+
+      <!-- Cabeçalho -->
       <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100 sticky top-0 bg-white rounded-t-2xl z-10">
         <div>
           <h2 class="text-xl font-black" style="font-family:'Playfair Display',serif">Gerir Atividades</h2>
           <p class="text-xs text-gray-400 mt-0.5">Crie, edite ou elimine posts de atividades</p>
         </div>
-        <button onclick="closeAdmin()" class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 transition-colors text-xl font-bold">✕</button>
+        <button onclick="closeAdmin()"
+          class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors text-xl font-bold"
+          aria-label="Fechar">✕</button>
       </div>
+
+      <!-- Tabs -->
       <div class="flex gap-2 px-6 pt-4 pb-2">
         <button class="admin-tab active" data-aba="lista">📋 Lista de Posts</button>
         <button class="admin-tab"        data-aba="novo">➕ Novo Post</button>
       </div>
+
+      <!-- ABA: Lista -->
       <div id="admin-lista" class="px-6 pb-6">
         <div id="admin-lista-posts"></div>
       </div>
+
+      <!-- ABA: Novo / Editar -->
       <div id="admin-form-wrap" class="px-6 pb-6" style="display:none">
         <h3 id="admin-form-titulo" class="font-bold text-lg mb-5">Novo Post</h3>
+
         <form id="admin-form" class="space-y-4" onsubmit="return false;">
-          <div><label class="form-label" for="f-titulo">Título *</label><input id="f-titulo" type="text" class="form-input" placeholder="Título do post" required /></div>
-          <div><label class="form-label" for="f-resumo">Resumo *</label><textarea id="f-resumo" rows="4" class="form-input resize-none" placeholder="Descreva brevemente esta atividade..." required></textarea></div>
+
+          <div>
+            <label class="form-label" for="f-titulo">Título *</label>
+            <input id="f-titulo" type="text" class="form-input" placeholder="Título do post" required />
+          </div>
+
+          <div>
+            <label class="form-label" for="f-resumo">Resumo / Descrição *</label>
+            <textarea id="f-resumo" rows="4" class="form-input resize-none"
+              placeholder="Descreva brevemente esta atividade..." required></textarea>
+          </div>
+
           <div class="grid grid-cols-2 gap-4">
-            <div><label class="form-label" for="f-categoria">Categoria *</label>
+            <div>
+              <label class="form-label" for="f-categoria">Categoria *</label>
               <select id="f-categoria" class="form-input" required>
                 <option value="evento">📅 Evento</option>
                 <option value="projeto">🌱 Projeto</option>
@@ -264,20 +286,76 @@
                 <option value="parceria">🤝 Parceria</option>
               </select>
             </div>
-            <div><label class="form-label" for="f-data">Data *</label><input id="f-data" type="date" class="form-input" required /></div>
+            <div>
+              <label class="form-label" for="f-data">Data *</label>
+              <input id="f-data" type="date" class="form-input" required />
+            </div>
           </div>
-          <div><label class="form-label" for="f-autor">Autor / Origem</label><input id="f-autor" type="text" class="form-input" placeholder="Ex: Conselho de Direção" /></div>
+
+          <div>
+            <label class="form-label" for="f-autor">Autor / Origem</label>
+            <input id="f-autor" type="text" class="form-input" placeholder="Ex: Conselho de Direção" />
+          </div>
+
+          <!-- Imagem de capa -->
+          <div>
+            <label class="form-label">Imagem de capa <span class="text-gray-400 font-normal">(opcional)</span></label>
+            <div id="f-imagem-drop" class="upload-drop" onclick="document.getElementById('f-imagem').click()">
+              <input id="f-imagem" type="file" accept="image/*" style="display:none" />
+              <div id="f-imagem-preview" style="display:none" class="upload-preview">
+                <img id="f-imagem-thumb" src="" alt="Pré-visualização" class="upload-thumb" />
+                <button type="button" onclick="limparFicheiro('imagem',event)" class="upload-clear">✕ Remover imagem</button>
+              </div>
+              <div id="f-imagem-placeholder" class="upload-placeholder">
+                <span style="font-size:2rem">🖼️</span>
+                <p class="text-sm font-semibold text-gray-500 mt-2">Clique ou arraste uma imagem aqui</p>
+                <p class="text-xs text-gray-400 mt-1">JPG, PNG, GIF, WebP — máx. 5 MB</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vídeo -->
+          <div>
+            <label class="form-label">Vídeo <span class="text-gray-400 font-normal">(opcional)</span></label>
+            <div id="f-video-drop" class="upload-drop" onclick="document.getElementById('f-video').click()">
+              <input id="f-video" type="file" accept="video/*" style="display:none" />
+              <div id="f-video-preview" style="display:none" class="upload-preview">
+                <video id="f-video-thumb" class="upload-thumb" controls></video>
+                <button type="button" onclick="limparFicheiro('video',event)" class="upload-clear">✕ Remover vídeo</button>
+              </div>
+              <div id="f-video-placeholder" class="upload-placeholder">
+                <span style="font-size:2rem">🎬</span>
+                <p class="text-sm font-semibold text-gray-500 mt-2">Clique ou arraste um vídeo aqui</p>
+                <p class="text-xs text-gray-400 mt-1">MP4, WebM, MOV — máx. 50 MB</p>
+              </div>
+            </div>
+            <div id="f-video-progress" style="display:none" class="mt-2">
+              <div style="display:flex;justify-content:space-between" class="text-xs text-gray-400 mb-1">
+                <span>A carregar vídeo...</span><span id="f-video-pct">0%</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full" style="height:6px">
+                <div id="f-video-bar" style="width:0%;height:6px;border-radius:9999px;background:var(--laranja);transition:width 0.2s"></div>
+              </div>
+            </div>
+          </div>
+
           <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#FEF3C7">
-            <input id="f-destaque" type="checkbox" class="w-4 h-4" />
-            <label for="f-destaque" class="text-sm font-semibold cursor-pointer">📌 Marcar como post em destaque (aparece no topo)</label>
+            <input id="f-destaque" type="checkbox" class="w-4 h-4 accent-orange-500" />
+            <label for="f-destaque" class="text-sm font-semibold cursor-pointer">
+              📌 Marcar como post em destaque (aparece no topo)
+            </label>
           </div>
+
           <p id="admin-form-error" class="text-red-500 text-sm font-medium"></p>
+
           <div class="flex gap-3 pt-2">
             <button type="submit" class="btn-ajudar flex-1 text-center" style="border:none;cursor:pointer">Guardar Post ✓</button>
             <button type="button" onclick="closeAdmin()" class="btn-secundario px-6" style="cursor:pointer">Cancelar</button>
           </div>
+
         </form>
       </div>
+
     </div>
   </div>
 
@@ -413,8 +491,8 @@
           <p class="text-sm text-gray-500 mb-4">Transferência rápida e segura pelo telemóvel. Disponível 24h.</p>
           <div class="rounded-xl p-4 mb-4" style="background:#F0FDF4">
             <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest mb-1">Número</p>
-            <p class="text-2xl font-black" style="color:var(--verde-escuro)">+258 84 399 8948</p>
-            <p class="text-xs text-gray-400 mt-1">Em nome de: Ana Paula Machel</p>
+            <p class="text-2xl font-black" style="color:var(--verde-escuro)">+258 8X XXX XXXX</p>
+            <p class="text-xs text-gray-400 mt-1">Em nome de: Associação Nhelety</p>
           </div>
           <p class="text-xs text-gray-400">Após a transferência, envie o comprovativo para o nosso e-mail.</p>
         </div>
@@ -523,7 +601,7 @@
     </div>
   </section>
 
-  <!-- ⑧ Footer -->
+  <!-- ⑨ Footer -->
   <footer class="py-12">
     <div class="max-w-6xl mx-auto px-5">
       <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-white border-opacity-10">
