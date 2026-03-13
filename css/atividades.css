@@ -5,7 +5,7 @@
    ══════════════════════════════════════════════ */
 
 /* ── ADMIN: escondido por defeito, revelado pelo JS apenas com ?key= ── */
-.admin-only { display: none !important; }
+.admin-only { display: none; }
 
 /* ── CARDS DE POST ── */
 .post-card {
