@@ -1,0 +1,56 @@
+/* ══════════════════════════════════════════════
+   sections.css — Estilos das secções internas
+   (Sobre, Membros, Transparência, Contato)
+   Associação Nhelety
+   ══════════════════════════════════════════════ */
+
+/* ── SOBRE NÓS ── */
+.orgao-card {
+  border-left: 4px solid var(--amarelo);
+  background: #fff;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+}
+
+/* ── MEMBROS ── */
+.membro-badge {
+  display: inline-block;
+  padding: 4px 14px; border-radius: 40px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── TRANSPARÊNCIA ── */
+.transp-item {
+  border-bottom: 1px dashed #D8D4C8;
+  padding: 16px 0;
+}
+.transp-item:last-child { border-bottom: none; }
+
+/* ── FORMULÁRIO DE CONTACTO ── */
+.form-input {
+  width: 100%;
+  border: 2px solid #E8E4D8;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--amarelo);
+  box-shadow: 0 0 0 3px rgba(245,197,24,0.18);
+}
+
+.form-label {
+  display: block; font-weight: 600; font-size: 0.88rem;
+  margin-bottom: 6px; color: var(--escuro);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--escuro);
+  color: rgba(255,255,255,0.75);
+}
