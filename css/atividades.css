@@ -4,6 +4,9 @@
    Associação Nhelety
    ══════════════════════════════════════════════ */
 
+/* ── ADMIN: escondido por defeito, revelado pelo JS apenas com ?key= ── */
+.admin-only { display: none !important; }
+
 /* ── CARDS DE POST ── */
 .post-card {
   background: #fff;
