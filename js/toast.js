@@ -1,18 +1,13 @@
 /* ══════════════════════════════════════════════
-   toast.js — Notificações de feedback (toast)
-   Usado por contato.js e atividades.js
+   toast.js — Notificação global showToast()
    Associação Nhelety
    ══════════════════════════════════════════════ */
 
-/**
- * Mostra uma notificação temporária no rodapé do ecrã.
- * @param {string} msg      - Texto da mensagem
- * @param {number} duration - Duração em ms (padrão: 4000)
- */
-function showToast(msg, duration = 4000) {
+function showToast(msg, duracao) {
   const toast = document.getElementById('toast');
   if (!toast) return;
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), duration);
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => toast.classList.remove('show'), duracao || 3500);
 }
