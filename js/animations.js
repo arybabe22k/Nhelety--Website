@@ -1,10 +1,9 @@
-/* ══════════════════════════════════════════════
-   animations.js — Reveal ao scroll (Intersection Observer)
-   Associação Nhelety
-   ══════════════════════════════════════════════ */
-
 (function () {
   'use strict';
+
+  const items = document.querySelectorAll('.reveal');
+
+  if (!items.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -13,8 +12,9 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, {
+    threshold: 0.12
+  });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
+  items.forEach(el => observer.observe(el));
 })();

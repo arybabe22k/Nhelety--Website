@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arybabe22k.github.io/Nhelety--Website/sitemap.xml
